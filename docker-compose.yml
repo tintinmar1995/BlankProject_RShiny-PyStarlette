@@ -1,0 +1,20 @@
+networks:
+  skeleton-network: 
+services:
+  skeleton-frontend:
+    image: skeleton-front:1.0
+    #volumes:
+    ports:
+      - 8050:8000
+    networks:
+      - skeleton-network
+    environment:
+      - URL_BACKEND=http://skeleton-backend:8000
+  skeleton-backend:
+    image: skeleton-back:1.0
+    #volumes:
+    ports:
+      - 8000:8000
+    networks: 
+      - skeleton-network
+    #environment:
